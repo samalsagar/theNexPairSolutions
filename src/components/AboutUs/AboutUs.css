@@ -1,0 +1,25 @@
+.para{
+    font-style: italic;
+}
+
+/* Add a smooth box-shadow effect for cards */
+
+
+/* Hover effect for cards */
+/* .item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+} */
+
+/* Styling the title */
+h4 {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 700;
+  color: #1e3a8a; /* A deep blue color */
+}
+
+/* Improve paragraph spacing */
+.para {
+  line-height: 1.8;
+  color: #555;
+}

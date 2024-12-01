@@ -78,8 +78,8 @@ function Header() {
               )}
             </button>
 
-            <ul className="lg:flex gap-x-5 max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-1/2 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50">
-              <li className="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
+            <ul className="lg:flex gap-x-5 max-lg:space-y-3 max-lg:fixed max-lg:bg-yellow-300 max-lg:w-1/2 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50">
+              <li className="max-lg:border-b border-yellow-300 max-lg:py-3 px-3">
                 <button
                   onClick={() => scrollToSection(heroRef)}
                   className="text-custom-blue block font-semibold text-[15px] hover:font-bold"  // Updated to font-bold
@@ -90,7 +90,7 @@ function Header() {
               <li className="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
                 <button
                   onClick={() => scrollToSection(aboutUsRef)}
-                  className="text-gray-500 block font-semibold text-[15px] hover:font-bold hover:text-custom-blue"  // Updated to font-bold
+                  className="text-gray-500 block font-semibold text-[15px] hover:font-bold hover:text-yellow-600"  // Updated to font-bold
                 >
                   About Us
                 </button>
@@ -98,7 +98,7 @@ function Header() {
               <li className="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
                 <button
                   onClick={() => scrollToSection(ourTeamRef)}
-                  className="text-gray-500 block font-semibold text-[15px] hover:font-bold hover:text-custom-blue"  // Updated to font-bold
+                  className="text-gray-500 block font-semibold text-[15px] hover:font-bold hover:text-yellow-600"  // Updated to font-bold
                 >
                   Our Team
                 </button>
@@ -106,7 +106,7 @@ function Header() {
               <li className="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
                 <button
                   onClick={() => scrollToSection(ourWorkRef)}
-                  className="text-gray-500 block font-semibold text-[15px] hover:font-bold hover:text-custom-blue"  // Updated to font-bold
+                  className="text-gray-500 block font-semibold text-[15px] hover:font-bold hover:text-yellow-600"  // Updated to font-bold
                 >
                   Our Work
                 </button>
@@ -134,7 +134,7 @@ function Header() {
           <div className="flex max-lg:ml-auto space-x-3">
             <button
               onClick={() => scrollToSection(donateRef)}
-              className="px-8 py-3 text-sm rounded-full font-bold text-black border-2 border-custom-blue bg-custom-blue transition-all ease-in-out duration-300 hover:bg-transparent hover:text-custom-blue">
+              className="bg-yellow-500 px-8 py-3 text-sm rounded-full font-bold text-white border-2 border-yellow-600 bg-custom-blue transition-all ease-in-out duration-300 hover:bg-transparent hover:text-yellow-600">
               Conatct US
             </button>
           </div>
