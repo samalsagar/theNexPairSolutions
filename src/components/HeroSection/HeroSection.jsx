@@ -1,6 +1,6 @@
 import React from 'react';
 import heroVideo from '../../assets/hero.mp4';
-import './heroSection.css'
+import './HeroSection.css'
 function HeroSection() {
   return (
     <div className="relative w-full h-auto">
