@@ -1,33 +1,163 @@
-import React from 'react'
+import React, { useState } from 'react';
+import logo from '../../assets/logo.png';
+import './Header.css';
 
 function Header() {
-    return (
-        <div>
-            <header class="flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-3 dark:bg-neutral-800">
-                <nav class="max-w-[85rem] w-full mx-auto px-4 flex flex-wrap basis-full items-center justify-between">
-                    <a class="sm:order-1 flex-none text-xl font-semibold dark:text-white focus:outline-none focus:opacity-80" href="#">Brand</a>
-                    <div class="sm:order-3 flex items-center gap-x-2">
-                        <button type="button" class="sm:hidden hs-collapse-toggle relative size-7 flex justify-center items-center gap-x-2 rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-neutral-700 dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10" id="hs-navbar-alignment-collapse" aria-expanded="false" aria-controls="hs-navbar-alignment" aria-label="Toggle navigation" data-hs-collapse="#hs-navbar-alignment">
-                            <svg class="hs-collapse-open:hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="6" y2="6" /><line x1="3" x2="21" y1="12" y2="12" /><line x1="3" x2="21" y1="18" y2="18" /></svg>
-                            <svg class="hs-collapse-open:block hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
-                            <span class="sr-only">Toggle</span>
-                        </button>
-                        <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
-                            Button
-                        </button>
-                    </div>
-                    <div id="hs-navbar-alignment" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:grow-0 sm:basis-auto sm:block sm:order-2" aria-labelledby="hs-navbar-alignment-collapse">
-                        <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:mt-0 sm:ps-5">
-                            <a class="font-medium text-blue-500 focus:outline-none" href="#" aria-current="page">Landing</a>
-                            <a class="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" href="#">Account</a>
-                            <a class="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" href="#">Work</a>
-                            <a class="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" href="#">Blog</a>
-                        </div>
-                    </div>
-                </nav>
-            </header>
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  // Scroll to the respective section and close the menu
+  const scrollToSection = (ref) => {
+    ref.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+
+    // Close the menu after scrolling to the section
+    setMenuOpen(false);
+  };
+
+  return (
+    <div>
+      <header className="header flex shadow-md py-4 px-4 sm:px-10 bg-white font-[sans-serif] min-h-[70px] tracking-wide relative z-50">
+        <div className="flex flex-wrap items-center justify-between w-full">
+          <a href="">
+            {/* Make the logo responsive and set consistent height/width */}
+            <img 
+              src={logo} 
+              alt="logo" 
+              className="logoImage h-12 rounded-lg w-36" // Adjust the size here for different screens
+            />
+          </a>
+
+          {/* Menu */}
+          <div
+            id="collapseMenu"
+            className={`${menuOpen ? 'block' : 'hidden'} lg:block max-lg:before:fixed max-lg:before:bg-black max-lg:before:opacity-50 max-lg:before:inset-0 max-lg:before:z-50`}
+          >
+            <button
+              id="toggleClose"
+              className="lg:hidden fixed top-2 right-4 z-[100] rounded-full bg-white p-3"
+              onClick={toggleMenu}
+            >
+              {/* Close icon (X) when the menu is open */}
+              {menuOpen ? (
+                <svg
+                  className="w-7 h-7 text-black"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  ></path>
+                </svg>
+              ) : (
+                // Hamburger icon when the menu is closed
+                <svg
+                  className="w-7 h-7 text-black"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  ></path>
+                </svg>
+              )}
+            </button>
+
+            <ul className="lg:flex gap-x-5 max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-1/2 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50">
+              <li className="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
+                <button
+                  onClick={() => scrollToSection(heroRef)}
+                  className="text-custom-blue block font-semibold text-[15px] hover:font-bold"  // Updated to font-bold
+                >
+                  Home
+                </button>
+              </li>
+              <li className="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
+                <button
+                  onClick={() => scrollToSection(aboutUsRef)}
+                  className="text-gray-500 block font-semibold text-[15px] hover:font-bold hover:text-custom-blue"  // Updated to font-bold
+                >
+                  About Us
+                </button>
+              </li>
+              <li className="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
+                <button
+                  onClick={() => scrollToSection(ourTeamRef)}
+                  className="text-gray-500 block font-semibold text-[15px] hover:font-bold hover:text-custom-blue"  // Updated to font-bold
+                >
+                  Our Team
+                </button>
+              </li>
+              <li className="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
+                <button
+                  onClick={() => scrollToSection(ourWorkRef)}
+                  className="text-gray-500 block font-semibold text-[15px] hover:font-bold hover:text-custom-blue"  // Updated to font-bold
+                >
+                  Our Work
+                </button>
+              </li>
+              <li className="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
+                <button
+                  onClick={() => scrollToSection(galleryRef)}
+                  className="text-gray-500 block font-semibold text-[15px] hover:font-bold hover:text-custom-blue"  // Updated to font-bold
+                >
+                  Gallery
+                </button>
+              </li>
+
+              <li className="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
+                <button
+                  onClick={() => scrollToSection(contactusRef)}
+                  className="text-gray-500 block font-semibold text-[15px] hover:font-bold hover:text-custom-blue"  // Updated to font-bold
+                >
+                  Contact Us
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <div className="flex max-lg:ml-auto space-x-3">
+            <button
+              onClick={() => scrollToSection(donateRef)}
+              className="px-8 py-3 text-sm rounded-full font-bold text-black border-2 border-custom-blue bg-custom-blue transition-all ease-in-out duration-300 hover:bg-transparent hover:text-custom-blue">
+              Conatct US
+            </button>
+          </div>
+
+          {/* Mobile Hamburger Menu */}
+          {!menuOpen && (
+            <div className="lg:hidden flex items-center ml-4"> {/* Only show hamburger if menu is closed */}
+              <button className="text-black" onClick={toggleMenu}>
+                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          )}
         </div>
-    )
+      </header>
+    </div>
+  );
 }
 
-export default Header
+export default Header;
