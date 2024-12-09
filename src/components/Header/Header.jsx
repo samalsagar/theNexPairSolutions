@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/nexPairLogo.jpeg';
 import './Header.css';
-
+import { useEffect } from 'react';
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -19,17 +19,38 @@ function Header() {
     // Close the menu after scrolling to the section
     setMenuOpen(false);
   };
+  const [showScrollToTop, setShowScrollToTop] = useState(false); // State to control visibility of the arrow
+  const handleScroll = () => {
+    if (window.scrollY > 300) {
+      setShowScrollToTop(true);
+    } else {
+      setShowScrollToTop(false);
+    }
+  };
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <div>
-      <header className="header flex shadow-md py-4 px-4 sm:px-10 bg-white font-[sans-serif] min-h-[70px] tracking-wide relative z-50">
+    <div className=''>
+      <header className="bg-blue-yellow header flex shadow-md py-4 px-4 sm:px-10 bg-white font-[sans-serif] min-h-[70px] tracking-wide relative z-50">
         <div className="flex flex-wrap items-center justify-between w-full">
           <a href="">
             {/* Make the logo responsive and set consistent height/width */}
             <img 
               src={logo} 
               alt="logo" 
-              className="logoImage h-12 rounded-lg w-36" // Adjust the size here for different screens
+              className="logoImag rounded-lg w-44 h-20" // Adjust the size here for different screens
             />
           </a>
 
@@ -156,6 +177,27 @@ function Header() {
           )}
         </div>
       </header>
+       {/* Scroll to Top Button */}
+       {showScrollToTop && (
+        <button
+        onClick={scrollToTop}
+        className="fixed bottom-4 right-4 bg-blue-500 text-white p-2 rounded-full shadow-lg transition-all transform hover:scale-110 hover:bg-blue-600 focus:outline-none"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          fill="currentColor"
+          className="bi bi-arrow-up"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8 12a.5.5 0 0 1-.5-.5V3.707l-3.146 3.147a.5.5 0 0 1-.708-.708L8 2.293l4.854 4.854a.5.5 0 1 1-.708.708L8.5 3.707V11.5a.5.5 0 0 1-.5.5z"
+          />
+        </svg>
+      </button>
+      
+      )}
     </div>
   );
 }

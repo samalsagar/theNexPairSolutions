@@ -24,9 +24,9 @@ function AboutUs() {
         {cardDetails.map((card, index) => (
           <div
             key={index}
-            className="max-w-sm w-full sm:w-80 md:w-96 lg:w-1/3 xl:w-1/4 rounded-lg bg-white p-6 transform transition duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-400"
+            className="border max-w-sm w-full sm:w-80 md:w-96 lg:w-1/3 xl:w-1/4 rounded-lg bg-white p-6 transform transition duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-400"
           >
-            <div className="item text-center">
+            <div className="item text-center ">
               <div className="flex justify-center mb-4">
                 <img src={card.img} alt={`${card.title} icon`} className="w-16 h-16" />
               </div>
