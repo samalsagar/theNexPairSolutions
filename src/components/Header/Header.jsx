@@ -178,26 +178,8 @@ function Header() {
         </div>
       </header>
        {/* Scroll to Top Button */}
-       {showScrollToTop && (
-        <button
-        onClick={scrollToTop}
-        className="fixed bottom-4 right-4 bg-blue-500 text-white p-2 rounded-full shadow-lg transition-all transform hover:scale-110 hover:bg-blue-600 focus:outline-none"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
-          fill="currentColor"
-          className="bi bi-arrow-up"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M8 12a.5.5 0 0 1-.5-.5V3.707l-3.146 3.147a.5.5 0 0 1-.708-.708L8 2.293l4.854 4.854a.5.5 0 1 1-.708.708L8.5 3.707V11.5a.5.5 0 0 1-.5.5z"
-          />
-        </svg>
-      </button>
-      
-      )}
+
+
     </div>
   );
 }

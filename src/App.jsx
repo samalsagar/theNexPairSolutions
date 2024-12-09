@@ -6,6 +6,13 @@ import AboutUs from './components/AboutUs/AboutUs';
 import ChhoseUs from './components/ChhoseUs/ChhoseUs';
 import Services from './components/Services/Services';
 import Loader from './components/Loader/Loader';
+import OurTeam from './components/OurTeam/OurTeam';
+import RecentWork from './components/RecentWork/RecentWork';
+import Review from './components/Review/Review';
+import StayUpdate from './components/StayUpdate/StayUpdate';
+import Contact from './components/Contact/Contact';
+import FAQ from './components/FAQ/FAQ';
+import Footer from './components/Footer/Footer';
 function App() {
   // const [isLoading, setIsLoading] = useState(true);
 
@@ -42,10 +49,17 @@ function App() {
       ) : (
         <div>
           <Header />
-          <HeroSection />
-          <AboutUs />
-          <ChhoseUs />
-          <Services />
+            <HeroSection />
+            <AboutUs />
+            <ChhoseUs />
+            <Services />
+            <OurTeam />
+            <RecentWork />
+            <Review />
+            <StayUpdate />
+            <Contact />
+            <FAQ />
+          <Footer />
         </div>
       )}
     </>
