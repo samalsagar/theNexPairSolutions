@@ -4,7 +4,7 @@ import gagn from '../../assets/Gagan.jpg';
 
 function Review() {
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
-  
+
   // Array of reviews
   const reviews = [
     {
@@ -46,56 +46,60 @@ function Review() {
     return () => clearInterval(interval);
   }, []); // Empty dependency array ensures this runs once when the component mounts
 
+  const currentReview = reviews[currentReviewIndex];
+
   return (
-    <div className='mt-20'>
-      <div className="mt-6 font-[sans-serif]">
+    <div className="mt-20 w-full">
+      <div className="mt-6 font-[sans-serif] text-black">
         <div className="max-w-4xl mx-auto relative">
           <div className="text-center">
-            <h2 className="text-3xl font-extrabold text-gray-800 inline-block relative after:absolute after:w-4/6 after:h-1 after:left-0 after:right-0 after:-bottom-4 after:mx-auto after:bg-yellow-400 after:rounded-full">
+            <h2 className="text-3xl font-extrabold text-black inline-block relative after:absolute after:w-4/6 after:h-1 after:left-0 after:right-0 after:-bottom-4 after:mx-auto after:bg-yellow-400 after:rounded-full">
               What our happy clients say
             </h2>
-            <p className="text-sm text-gray-800 mt-6 leading-relaxed">
-              Veniam proident aute magna anim excepteur et ex consectetur velit ullamco veniam minim aute sit. Elit occaecat officia et laboris Lorem minim. Officia do aliqua adipisicing ullamco in.
+            <p className="text-sm text-black mt-6 leading-relaxed">
+            Our clients are at the heart of everything we do. Their feedback drives us to constantly improve and innovate. From exceptional service to outstanding results, we are proud to have built lasting relationships with clients who trust and appreciate our commitment. Here’s what some of them have to say about their experiences with us:
             </p>
           </div>
 
-          <div className="max-w-xl mt-16 mx-auto">
-            <div className="flex flex-col items-center text-center">
-              <img
-                src={reviews[currentReviewIndex].image}
-                className="w-28 h-28 rounded-full shadow-[0_2px_22px_-4px_rgba(93,96,127,0.6)] border-2 border-white"
-                alt={reviews[currentReviewIndex].name}
-              />
-              <div className="mt-4">
-                <h4 className="text-gray-800 text-base font-extrabold">{reviews[currentReviewIndex].name}</h4>
-                <p className="text-xs text-gray-500 mt-1">{reviews[currentReviewIndex].role}</p>
+          <section className="relative">
+            <svg className="absolute blur-3xl opacity-70 -top-6 animate-pulse" width="100%" height="100%" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clipPath="url(#clip0_17_56)">
+                <g filter="url(#filter0_f_17_56)">
+                  <path d="M128.6 0H0V322.2L250.5 231.5L128.6 0Z" fill="white"></path>
+                  <path d="M0 322.2V400H240H320L250.5 231.5L0 322.2Z" fill="#7000FF"></path>
+                  <path d="M320 400H400V78.75L250.5 231.5L320 400Z" fill="#5200FF"></path>
+                  <path d="M400 0H128.6L250.5 231.5L400 78.75V0Z" fill="#380094"></path>
+                </g>
+              </g>
+              <defs>
+                <filter id="filter0_f_17_56" x="-160.333" y="-160.333" width="720.666" height="720.666" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                  <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+                  <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+                  <feGaussianBlur stdDeviation="80.1666" result="effect1_foregroundBlur_17_56"></feGaussianBlur>
+                </filter>
+              </defs>
+            </svg>
+
+            <div className="relative max-w-7xl 2xl:max-w-screen-2xl lg:px-16 md:px-12 mx-auto py-10 px-8 h-svh flex flex-col justify-center items-center">
+              <div className="lg:border lg:p-20 lg:rounded-[4rem] border-white/5 lg:backdrop-blur-xl lg:shadow-2xl 2xl:p-32">
+                <div className="pb-6 text-black font-medium mx-auto text-xl h-64 italic serif text-balance items-center text-center lg:text-4xl">
+                  <p><span className="">"</span>{currentReview.text}<span className="">"</span></p>
+                </div>
+
+                <div className="flex items-center justify-center lg:mt-12 md:mt-12 sm:mt-5">
+                  {/* Buttons to change the active testimonial */}
+                  <button onClick={prevReview} className="inline-block mx-2 font-bold text-center rounded-xl focus:outline-none focus:ring-2 ring-offset-2 ring-white size-12">
+                    <img className="inline-block size-12 rounded-xl object-cover" src={currentReview.image} alt={currentReview.name} />
+                  </button>
+                </div>
+                {/* Dynamically render name and role */}
+                <div className="text-center py-6">
+                  <h2 className="text-black font-medium text-base">{currentReview.name}</h2>
+                  <a href="#" className="text-xs text-gray-600">{currentReview.role}</a>
+                </div>
               </div>
             </div>
-
-            <div className="mt-6 text-center">
-              <p className="text-sm leading-relaxed">{reviews[currentReviewIndex].text}</p>
-            </div>
-          </div>
-
-          {/* Previous and Next Buttons */}
-          <div className="bg-gray-300 w-10 h-10 grid items-center justify-center rounded-full rotate-90 shrink-0 cursor-pointer absolute left-0 top-0 bottom-0 my-auto" onClick={prevReview}>
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-3 fill-gray-800 inline" viewBox="0 0 24 24">
-              <path
-                fillRule="evenodd"
-                d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
-          </div>
-          <div className="bg-gray-800 w-10 h-10 grid items-center justify-center rounded-full -rotate-90 shrink-0 cursor-pointer absolute right-0 top-0 bottom-0 my-auto" onClick={nextReview}>
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-3 fill-[#fff] inline" viewBox="0 0 24 24">
-              <path
-                fillRule="evenodd"
-                d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
-          </div>
+          </section>
         </div>
       </div>
     </div>

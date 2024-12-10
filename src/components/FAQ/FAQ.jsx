@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import faq from '../../assets/faq.png';
 function FAQ() {
     // State to manage the visibility of the accordion content
     const [openIndex, setOpenIndex] = useState(null);
@@ -23,7 +23,7 @@ function FAQ() {
                 <div className="grid lg:grid-cols-3 gap-8">
                     <div>
                         <img
-                            src="https://validthemes.net/site-template/softing/assets/img/banner/contact.png"
+                            src={faq}
                             alt="FAQ Banner"
                         />
                     </div>

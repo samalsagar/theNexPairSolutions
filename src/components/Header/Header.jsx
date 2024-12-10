@@ -129,24 +129,17 @@ function Header() {
                   onClick={() => scrollToSection(ourWorkRef)}
                   className="text-gray-500 block font-semibold text-[15px] hover:font-bold hover:text-yellow-600"  // Updated to font-bold
                 >
-                  Our Work
+                  Services
                 </button>
               </li>
-              <li className="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
-                <button
-                  onClick={() => scrollToSection(galleryRef)}
-                  className="text-gray-500 block font-semibold text-[15px] hover:font-bold hover:text-custom-blue"  // Updated to font-bold
-                >
-                  Gallery
-                </button>
-              </li>
+        
 
               <li className="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
                 <button
                   onClick={() => scrollToSection(contactusRef)}
-                  className="text-gray-500 block font-semibold text-[15px] hover:font-bold hover:text-custom-blue"  // Updated to font-bold
+                  className="text-gray-500 block font-semibold text-[15px] hover:font-bold hover:text-yellow-600"  // Updated to font-bold
                 >
-                  Contact Us
+                  Recent Work
                 </button>
               </li>
             </ul>

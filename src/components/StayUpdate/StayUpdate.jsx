@@ -2,7 +2,7 @@ import React from 'react'
 
 function update() {
   return (
-    <div className='mt-20'>
+    <div className=''>
   <div className="relative font-[sans-serif]">
     {/* Image background */}
     <div className="absolute inset-0 w-full h-full bg-cover bg-center z-0" style={{ backgroundImage: 'url("https://validthemes.net/site-template/softing/assets/img/banner/4.jpg")', backgroundAttachment: 'fixed' }} />

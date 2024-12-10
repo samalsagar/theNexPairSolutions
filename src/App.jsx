@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import HeroSection from './components/HeroSection/HeroSection';
@@ -13,7 +13,15 @@ import StayUpdate from './components/StayUpdate/StayUpdate';
 import Contact from './components/Contact/Contact';
 import FAQ from './components/FAQ/FAQ';
 import Footer from './components/Footer/Footer';
+import WhatsApp from './components/WhatsApp/WhatsApp';
 function App() {
+
+  const aboutUsRef = useRef(null);
+  const ourTeamRef = useRef(null);
+  const ourTeamref = useRef(null);
+  const servicesRef = useRef(null);
+  const recentWork = useRef(null);
+  const contactRef = useRef(null);
   // const [isLoading, setIsLoading] = useState(true);
 
   // useEffect(() => {
@@ -48,18 +56,46 @@ function App() {
         <Loader /> // Show the loader while loading
       ) : (
         <div>
-          <Header />
+          <Header
+            aboutUsRef={aboutUsRef}
+            ourTeamRef={ourTeamRef}
+            ourTeamref={ourTeamref}
+            servicesRef={servicesRef}
+            recentWork={recentWork}
+            contactRef={contactRef}
+
+          />
+          <main>
             <HeroSection />
-            <AboutUs />
+            <section id='aboutus' ref={aboutUsRef}>
+              <AboutUs />
+            </section>
             <ChhoseUs />
-            <Services />
-            <OurTeam />
-            <RecentWork />
+            <section id='services' ref={servicesRef}>
+              <Services />
+            </section>
+            <section id='ourteam' ref={ourTeamRef}>
+              <OurTeam />
+            </section>
+            <section id='recentwork' ref={recentWork}>
+              <RecentWork />
+            </section>
             <Review />
             <StayUpdate />
-            <Contact />
+            <section id='contact' ref={contactRef}>
+              <Contact />
+            </section>
             <FAQ />
-          <Footer />
+            <WhatsApp />
+          </main>
+          <Footer 
+          aboutUsRef={aboutUsRef}
+          ourTeamRef={ourTeamRef}
+          ourTeamref={ourTeamref}
+          servicesRef={servicesRef}
+          recentWork={recentWork}
+          contactRef={contactRef}
+          />
         </div>
       )}
     </>
