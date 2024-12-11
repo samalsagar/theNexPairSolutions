@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
-import logo from '../../assets/nexPairLogo.jpeg';
+import logo from '../../assets/logo.png';
 import './Header.css';
 import { useEffect } from 'react';
-function Header() {
+function Header({
+  aboutUsRef,
+  ourTeamRef,
+  servicesRef,
+  recentWorkRef,
+  contactRef
+}) {
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -19,38 +26,18 @@ function Header() {
     // Close the menu after scrolling to the section
     setMenuOpen(false);
   };
-  const [showScrollToTop, setShowScrollToTop] = useState(false); // State to control visibility of the arrow
-  const handleScroll = () => {
-    if (window.scrollY > 300) {
-      setShowScrollToTop(true);
-    } else {
-      setShowScrollToTop(false);
-    }
-  };
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   return (
     <div className=''>
-      <header className="bg-blue-yellow header flex shadow-md py-4 px-4 sm:px-10 bg-white font-[sans-serif] min-h-[70px] tracking-wide relative z-50">
+      <header className="bg-blue-yellow header flex shadow-md py-4 px-4 bg-white font-[sans-serif] min-h-[70px] tracking-wide relative z-50">
         <div className="flex flex-wrap items-center justify-between w-full">
-          <a href="">
+          <a href="/">
             {/* Make the logo responsive and set consistent height/width */}
             <img 
               src={logo} 
               alt="logo" 
-              className="logoImag rounded-lg w-44 h-20" // Adjust the size here for different screens
+              className="logoImag rounded-lg lg:w-44 md:w-44 h-14" // Adjust the size here for different screens
             />
           </a>
 
@@ -99,10 +86,10 @@ function Header() {
               )}
             </button>
 
-            <ul className="lg:flex gap-x-5 max-lg:space-y-3 max-lg:fixed max-lg:bg-yellow-300 max-lg:w-1/2 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50">
+            <ul className="lg:flex gap-x-5 max-lg:space-y-3 max-lg:fixed max-lg:bg-yellow-300 max-lg:w-1/2 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50 from-slate-500 ">
               <li className="max-lg:border-b border-yellow-300 max-lg:py-3 px-3">
                 <button
-                  onClick={() => scrollToSection(heroRef)}
+                  onClick={() => scrollToSection('/')}
                   className="text-custom-blue block font-semibold text-[15px] hover:font-bold"  // Updated to font-bold
                 >
                   Home
@@ -126,7 +113,7 @@ function Header() {
               </li>
               <li className="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
                 <button
-                  onClick={() => scrollToSection(ourWorkRef)}
+                  onClick={() => scrollToSection(servicesRef)}
                   className="text-gray-500 block font-semibold text-[15px] hover:font-bold hover:text-yellow-600"  // Updated to font-bold
                 >
                   Services
@@ -136,7 +123,7 @@ function Header() {
 
               <li className="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
                 <button
-                  onClick={() => scrollToSection(contactusRef)}
+                  onClick={() => scrollToSection(recentWorkRef)}
                   className="text-gray-500 block font-semibold text-[15px] hover:font-bold hover:text-yellow-600"  // Updated to font-bold
                 >
                   Recent Work
@@ -147,7 +134,7 @@ function Header() {
 
           <div className="flex max-lg:ml-auto space-x-3">
             <button
-              onClick={() => scrollToSection(donateRef)}
+              onClick={() => scrollToSection(contactRef)}
               className="bg-yellow-500 px-8 py-3 text-sm rounded-full font-bold text-white border-2 border-yellow-600 bg-custom-blue transition-all ease-in-out duration-300 hover:bg-transparent hover:text-yellow-600">
               Conatct US
             </button>

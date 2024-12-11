@@ -18,9 +18,9 @@ function App() {
 
   const aboutUsRef = useRef(null);
   const ourTeamRef = useRef(null);
-  const ourTeamref = useRef(null);
+  // const ourTeamref = useRef(null);
   const servicesRef = useRef(null);
-  const recentWork = useRef(null);
+  const recentWorkRef = useRef(null);
   const contactRef = useRef(null);
   // const [isLoading, setIsLoading] = useState(true);
 
@@ -45,7 +45,6 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate a loading process (e.g., fetching data)
     setTimeout(() => {
       setLoading(false);
     }, 3000); // Hide loader after 3 seconds
@@ -53,15 +52,15 @@ function App() {
   return (
     <>
       {loading ? (
-        <Loader /> // Show the loader while loading
+        <Loader />
       ) : (
         <div>
           <Header
             aboutUsRef={aboutUsRef}
             ourTeamRef={ourTeamRef}
-            ourTeamref={ourTeamref}
+            // ourTeamref={ourTeamref}
             servicesRef={servicesRef}
-            recentWork={recentWork}
+            recentWorkRef={recentWorkRef}
             contactRef={contactRef}
 
           />
@@ -77,7 +76,7 @@ function App() {
             <section id='ourteam' ref={ourTeamRef}>
               <OurTeam />
             </section>
-            <section id='recentwork' ref={recentWork}>
+            <section id='recentwork' ref={recentWorkRef}>
               <RecentWork />
             </section>
             <Review />
@@ -91,9 +90,9 @@ function App() {
           <Footer 
           aboutUsRef={aboutUsRef}
           ourTeamRef={ourTeamRef}
-          ourTeamref={ourTeamref}
+          // ourTeamref={ourTeamref}
           servicesRef={servicesRef}
-          recentWork={recentWork}
+          recentWorkRef={recentWorkRef}
           contactRef={contactRef}
           />
         </div>
