@@ -34,7 +34,7 @@ function Footer({
                     <div className="flex flex-col justify-between sm:px-[18px] md:flex-row md:px-10">
                         <div className="md:w-[316px]">
                             <p className="text-[18px] font-medium text-black">
-                                <h1 className="text-black font-extrabold">
+                                <h1 className="text-black font-extrabold text-left">
                                     <span className="text-yellow-400">NEXPAIR</span>SOLUTIONS
                                 </h1>
                             </p>

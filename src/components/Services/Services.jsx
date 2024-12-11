@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
-import deve from '../../assets/developer.png';
-import dynamic from '../../assets/dynamic.png';
-import mobile from '../../assets/mobile-app.png';
-import './Services.css'
+import React, { useState, useEffect, useRef } from 'react';
+import test from '../../assets/testService.png';
+import test2 from '../../assets/testService2.png';
+import test3 from '../../assets/testService3.png';
+import './Services.css';
+
 function Services() {
   // State to handle modal visibility and service data
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState({ title: '', description: '' });
+
+  // Refs to store references to the service cards for the intersection observer
+  const serviceCardRefs = useRef([]);
 
   // Function to open the modal and set content
   const openModal = (title, description) => {
@@ -19,6 +23,31 @@ function Services() {
     setIsModalOpen(false);
   };
 
+  // UseEffect to set up the Intersection Observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-in-view'); // Add class when the card is in view
+            observer.unobserve(entry.target); // Stop observing once the card is in view
+          }
+        });
+      },
+      { threshold: 0.5 } // Trigger when 50% of the card is in view
+    );
+
+    serviceCardRefs.current.forEach((card) => {
+      observer.observe(card);
+    });
+
+    return () => {
+      serviceCardRefs.current.forEach((card) => {
+        observer.unobserve(card);
+      });
+    };
+  }, []);
+
   return (
     <div>
       {/* <!-- component --> */}
@@ -26,11 +55,11 @@ function Services() {
         <div className="container xl:max-w-6xl mx-auto px-4">
           {/* <!-- Heading start --> */}
           <header className="text-center mx-auto mb-10 lg:px-20">
-          <h2 className="text-3xl font-extrabold text-gray-800 inline-block relative after:absolute after:w-4/6 after:h-1 after:left-0 after:right-0 after:-bottom-4 after:mx-auto after:bg-yellow-400 after:rounded-full">
+            <h2 className="text-3xl font-extrabold text-gray-800 inline-block relative after:absolute after:w-4/6 after:h-1 after:left-0 after:right-0 after:-bottom-4 after:mx-auto after:bg-yellow-400 after:rounded-full">
               What We DO
             </h2>
             <p className="text-gray-900 leading-relaxed font-light text-lg mx-auto pb-2 mt-6">
-            "Tailored solutions that drive innovation, improve performance, and elevate your brand’s presence in the digital world."
+              "Tailored solutions that drive innovation, improve performance, and elevate your brand’s presence in the digital world."
             </p>
           </header>
           {/* <!-- End heading --> */}
@@ -38,101 +67,117 @@ function Services() {
           <div className="flex flex-wrap flex-row -mx-4 text-center">
             {/* Service Block 1 */}
             <div
-              className="flex-shrink px-4 max-w-full w-full sm:w-1/2 lg:w-1/3 lg:px-6 wow fadeInUp"
+              className="service-card-container px-4 max-w-full w-full sm:w-1/2 lg:w-1/3 lg:px-6 wow fadeInUp"
               data-wow-duration="1s"
-              style={{ visibility: '', animationDuration: '1s', animationName: 'fadeInUp' }}
+              ref={(el) => (serviceCardRefs.current[0] = el)} // Set ref for the first card
             >
-              <div className="py-8 px-12 mb-12 bg-gray-50 border-b border-gray-100 transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-lg rounded-lg hover:bg-gray-100">
-                <div className="inline-block text-gray-900 mb-4">
-                  <img src={deve} alt="Static Website Development" className='h-10 mx-auto transition-transform duration-300 ease-in-out transform hover:scale-110' />
-                </div>
-                <h3 className="text-lg leading-normal mb-2 font-semibold text-black text-center transition-all duration-300 ease-in-out transform hover:text-blue-600">
-                  Static Website Development
-                </h3>
-                <p className="text-gray-500 text-center mb-4 transition-all duration-300 ease-in-out hover:text-gray-700">
-                  "Transform your online presence with high-performance, lightning-fast, and secure static websites that drive SEO results, offering you an affordable, scalable solution that’s easy to maintain and built to last."
-                </p>
-                <div className="text-center">
+              <div className="service-card py-8 px-12 mb-12 bg-gradient-to-r from-teal-400 to-teal-600 text-white transform transition duration-300 ease-in-out hover:scale-105 hover:shadow-xl rounded-lg">
+                <img src={test} alt="img" className="rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105" />
+                <div className="text-center mt-4 lg:hidden">
                   <button
-                    onClick={() => openModal(
-                      'Static Website Development',
-                      "We specialize in building custom static websites that offer superior performance and reliability.From design to deployment, we craft beautiful and functional static websites that scale with your business.We use cutting-edge technologies like HTML, CSS, JavaScript,reactJs and static site generators to build robust websites.Our clients love how we turn their ideas into high-performing websites."
-                    )}
-                    className="px-6 py-2 bg-yellow-500 text-white font-medium rounded-md hover:bg-blue-500 hover:text-white transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-300"
+                    onClick={() =>
+                      openModal(
+                        'Static Website Development',
+                        'We specialize in building custom static websites that offer superior performance and reliability. From design to deployment, we craft beautiful and functional static websites that scale with your business.'
+                      )
+                    }
+                    className="btn-animation px-6 py-2 bg-yellow-500 text-white font-medium rounded-md hover:bg-blue-500 hover:text-white transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-300"
                   >
                     Know More
                   </button>
+                </div>
+                {/* Visible on larger screens */}
+                <div className="service-description hidden lg:block text-gray-700 mt-4 -ms-10">
+                <p className='text-justify font-serif'> we specialize in building fast, secure, and high-performance static websites that deliver exceptional user experiences. Our static website development approach ensures your website is both reliable and scalable, providing the perfect solution for businesses looking for a sleek, efficient online presence.<br />
+                    <b>Why Choose Static Websites?</b><br/>
+                    Static websites are designed to serve pre-rendered HTML, CSS, and JavaScript files directly to users, resulting in ultra-fast load times and improved performance. These websites are not only quick but also incredibly secure, as they lack dynamic server-side processes and databases. This makes them less prone to security vulnerabilities.
+                    <br /><b>Benefits of Static Websites:</b><br />
+                    <b>Speed & Performance:</b> Static websites load faster because they serve pre-built files directly to users, improving both user experience and SEO.
+                    <br /><b>Security:</b> With no databases or server-side processes, static websites are inherently more secure against cyber threats.
+                    <br /><b>Scalability:</b> Whether you have 100 or 100,000 visitors, static websites scale seamlessly to accommodate large traffic volumes without performance drops.
+                   <br />
+                   <b> Low Maintenance:</b> With fewer moving parts, static websites are easier to maintain and update, saving you time and effort in the long run.
+                   <br /><b>Scalability:</b>br Whether you have 100 or 100,000 visitors, static websites scale seamlessly to accommodate large traffic volumes without performance drops.
+                   </p>
                 </div>
               </div>
             </div>
 
             {/* Service Block 2 */}
             <div
-              className="flex-shrink px-4 max-w-full w-full sm:w-1/2 lg:w-1/3 lg:px-6 wow fadeInUp"
+              className="service-card-container px-4 max-w-full w-full sm:w-1/2 lg:w-1/3 lg:px-6 wow fadeInUp"
               data-wow-duration="1s"
-              style={{ visibility: '', animationDuration: '1s', animationName: 'fadeInUp' }}
+              ref={(el) => (serviceCardRefs.current[1] = el)} // Set ref for the second card
             >
-              <div className="py-8 px-12 mb-12 bg-gray-50 border-b border-gray-100 transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-lg rounded-lg hover:bg-gray-100">
-                <div className="inline-block text-gray-900 mb-4">
-                  <img src={dynamic} alt="dynamic services" className='h-10 mx-auto transition-transform duration-300 ease-in-out transform hover:scale-110' />
-                </div>
-                <h3 className="text-lg leading-normal mb-2 font-semibold text-black text-center transition-all duration-300 ease-in-out transform hover:text-blue-600 whitespace-nowrap">
-                  Dynamic Website Development
-                </h3>
-                <p className="text-gray-500 text-center mb-4 transition-all duration-300 ease-in-out hover:text-gray-700">
-                  "Dynamic website development empowers your brand to build a responsive, user-centric web presence that drives engagement and provides ongoing value to both users and administrators alike."
-                </p>
-                <div className="text-center">
+              <div className="service-card py-8 px-12 mb-12 bg-gradient-to-r from-blue-400 to-blue-600 text-white transform transition duration-300 ease-in-out hover:scale-105 hover:shadow-xl rounded-lg">
+                <img src={test2} alt="" className="rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105" />
+                <div className="text-center mt-4 lg:hidden">
                   <button
-                    onClick={() => openModal(
-                      'Dynamic Website Developement',
-                      `we specialize in providing top-notch Dynamic Website Development services tailored to meet your business needs. A dynamic website is a powerful tool for businesses looking to engage customers and provide a personalized, interactive experience. Unlike static websites, dynamic websites can adapt to user interactions, display real-time data, and deliver content that changes dynamically based on different factors, such as user preferences, location, or behavior.
-                      
-                      Let us help you create a dynamic and interactive website that delivers real-time, engaging content while offering an excellent user experience. Get in touch today to discuss how we can help your business grow with our Dynamic Website Development services.`
-                    )}
-                    className="px-6 py-2 bg-yellow-500 text-white font-medium rounded-md hover:bg-blue-500 hover:text-white transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-300"
+                    onClick={() =>
+                      openModal(
+                        'Dynamic Website Development',
+                        'We specialize in providing top-notch Dynamic Website Development services tailored to meet your business needs...'
+                      )
+                    }
+                    className="btn-animation px-6 py-2 bg-yellow-500 text-white font-medium rounded-md hover:bg-blue-500 hover:text-white transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-300"
                   >
                     Know More
                   </button>
+                </div>
+                {/* Visible on larger screens */}
+                <div className="service-description hidden lg:block text-gray-700 mt-4 ml-8">
+                <p className='text-justify font-serif'>we specialize in providing top-tier Dynamic Website Development services that are designed to elevate your business and engage your audience in meaningful ways. Dynamic websites offer a higher level of interactivity, customization, and real-time data integration compared to static websites. These websites adapt to user interactions and display personalized content based on factors like user preferences, location, or browsing behavior. <br/>
+
+<b>Why Choose Dynamic Websites?</b><br />
+Dynamic websites are ideal for businesses that require a more personalized and interactive online presence. They allow for real-time content updates, user-generated data, and enhanced features such as e-commerce functionality, blogs, member portals, and more. This type of website can tailor the user experience to meet the specific needs of your audience, providing a richer and more engaging journey. <br />
+
+<b>Benefits of Dynamic Websites:</b>
+<br /><b>Personalized User Experience:</b> Display customized content and recommendations based on user behavior, location, or preferences to drive engagement and conversions.
+<br /><b>Real-Time Content:</b> With dynamic websites, you can offer live updates, real-time data integration, and seamless content management that keeps your website fresh and relevant.
+<br />
+<b>Increased Interactivity:</b><br /> Features like forms, search functionalities, interactive maps, and live chats help you connect with visitors, answer their queries, and foster engagement.
+</p>
                 </div>
               </div>
             </div>
 
             {/* Service Block 3 */}
             <div
-              className="flex-shrink px-4 max-w-full w-full sm:w-1/2 lg:w-1/3 lg:px-6 wow fadeInUp"
+              className="service-card-container px-4 max-w-full w-full sm:w-1/2 lg:w-1/3 lg:px-6 wow fadeInUp"
               data-wow-duration="1s"
-              style={{ visibility: '', animationDuration: '1s', animationName: 'fadeInUp' }}
+              ref={(el) => (serviceCardRefs.current[2] = el)} // Set ref for the third card
             >
-              <div className="py-8 px-12 mb-12 bg-gray-50 border-b border-gray-100 transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-lg rounded-lg hover:bg-gray-100">
-                <div className="inline-block text-gray-900 mb-4">
-                  <img src={mobile} alt="Mobile app Services" className='h-10 mx-auto transition-transform duration-300 ease-in-out transform hover:scale-110' />
-                </div>
-                <h3 className="text-lg leading-normal mb-2 font-semibold text-black text-center transition-all duration-300 ease-in-out transform hover:text-blue-600 whitespace-nowrap">
-                  Mobile App Development
-                </h3>
-                <p className="text-gray-500 text-center mb-4 transition-all duration-300 ease-in-out hover:text-gray-700">
-                  "Our team of skilled mobile app developers uses the latest technologies and frameworks to create apps that are intuitive, responsive, and scalable. We ensure that your app performs flawlessly."
-                </p>
-                <div className="text-center">
+              <div className="service-card py-8 px-12 mb-12 bg-gradient-to-r from-purple-400 to-purple-600 text-white transform transition duration-300 ease-in-out hover:scale-105 hover:shadow-xl rounded-lg">
+                <img src={test3} alt="" className="rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105" />
+                <div className="text-center mt-4 lg:hidden">
                   <button
-                    onClick={() => openModal(
-                      'Mobile App Developement',
-                      `We specialize in developing high-performance, feature-rich mobile applications tailored to meet your business needs. Whether you're looking to build an Android, iOS, or cross-platform app, we have the expertise to bring your ideas to life.
-
-Our team of skilled mobile app developers uses the latest technologies and frameworks to create apps that are intuitive, responsive, and scalable. We ensure that your app performs flawlessly across different devices and platforms, providing a smooth experience for your users.
-
-Let us help you transform your ideas into an innovative and functional mobile app that empowers your business and elevates user engagement. Get in touch today to discuss how we can help you create a powerful mobile presence!`
-                    )}
-                    className="px-6 py-2 bg-yellow-500 text-white font-medium rounded-md hover:bg-blue-500 hover:text-white transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-300"
+                    onClick={() =>
+                      openModal(
+                        'Mobile App Development',
+                        'We specialize in developing high-performance, feature-rich mobile applications tailored to meet your business needs...'
+                      )
+                    }
+                    className="btn-animation px-6 py-2 bg-yellow-500 text-white font-medium rounded-md hover:bg-blue-500 hover:text-white transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-300"
                   >
                     Know More
                   </button>
                 </div>
+                {/* Visible on larger screens */}
+                <div className="service-description hidden lg:block text-gray-700 mt-4 ml-8">
+                <p className='text-justify font-serif'>we specialize in creating innovative, user-friendly mobile applications that help businesses connect with their customers on the go. Whether you're looking to build an app for iOS, Android, or both platforms, our expert team is here to turn your ideas into functional, engaging, and high-performance mobile apps.
+
+<br /><b>Why Choose Mobile App Development?</b><br />
+In today’s mobile-first world, having a well-designed mobile app is essential for staying connected with your audience and offering a seamless user experience. Mobile apps allow businesses to engage users in real-time, deliver personalized content, and provide essential services directly at their fingertips. From entertainment and shopping to productivity and customer support, a mobile app can enhance your brand presence and build stronger customer relationships.
+
+<br /><b>Benefits of Mobile Apps:</b><br />
+<b>Increased Customer Engagement:</b><br /> With push notifications, personalized content, and easy access to services, mobile apps help keep your customers engaged and coming back for more.
+<br /><b>Offline Access:</b> <br /> Mobile apps can offer offline capabilities, allowing users to access key features even when they don’t have an internet connection.
+<br /><b>Enhanced User Experience:</b> <br />Native mobile apps are optimized for performance, ensuring smooth, responsive interactions and fast load times, leading to greater user satisfaction.
+<br /><b>Brand Loyalty & Recognition:</b><br /> A well-crafted mobile app builds brand presence and provides a direct communication channel
+ with your customers, boosting loyalty and recognition.</p>
+                </div>
               </div>
             </div>
-
-            {/* Add more services similarly... */}
           </div>
         </div>
       </div>
@@ -145,7 +190,12 @@ Let us help you transform your ideas into an innovative and functional mobile ap
             <p className="text-gray-700 mb-6 text-justify">{modalContent.description}</p>
 
             <div className="text-center mb-6">
-              <p className="text-lg font-semibold text-gray-800">Need more information? <span className="text-blue-500 hover:underline hover:cursor-pointer">Contact us</span></p>
+              <p className="text-lg font-semibold text-gray-800">
+                Need more information?{' '}
+                <span className="text-yellow-500 hover:underline hover:cursor-pointer">
+                  <a href="">Contact us</a>
+                </span>
+              </p>
             </div>
 
             <div className="flex justify-end">
@@ -158,7 +208,6 @@ Let us help you transform your ideas into an innovative and functional mobile ap
             </div>
           </div>
         </div>
-
       )}
     </div>
   );

@@ -50,7 +50,7 @@ function AboutUs() {
           "NexPair Solutions is a service and consulting company specializing in providing high-quality solutions for businesses in the areas of mobile app development, web app development, and full-stack development. It was founded in December 2024 by two developers who were colleagues at a previous company."
         </p>
       </div>
-      <div className="flex flex-wrap justify-center gap-6 p-6">
+      <div className="flex flex-wrap justify-center gap-14 p-6 mt-20 mb-10">
         {cardDetails.map((card, index) => (
           <div
             key={index}

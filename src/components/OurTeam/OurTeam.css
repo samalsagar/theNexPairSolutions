@@ -1,0 +1,36 @@
+@keyframes slide-left {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slide-right {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  .animate-slide-left {
+    animation: slide-left 1s ease-out forwards;
+  }
+  
+  .animate-slide-right {
+    animation: slide-right 1s ease-out forwards;
+  }
+  
+  .team-card {
+    opacity: 0;  /* Hide until animation */
+    transform: translateX(0); /* Ensure it’s in position before animation */
+  }
+  
+  .team-card.animate-slide-left,
+  .team-card.animate-slide-right {
+    opacity: 1;
+  }
+  

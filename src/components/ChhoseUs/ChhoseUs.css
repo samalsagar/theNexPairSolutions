@@ -51,3 +51,58 @@
     transform: translate3d(100%, 0, 0);
    }
    
+   /* Slide and fade animations */
+@keyframes slideInLeft {
+    0% {
+      transform: translateX(-100%) scale(0.95) rotate(15deg);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0) scale(1) rotate(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInRight {
+    0% {
+      transform: translateX(100%) scale(0.95) rotate(-15deg);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0) scale(1) rotate(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Apply animation when component is in view */
+  .animate-slide-left {
+    animation: slideInLeft 1s ease-out forwards;
+  }
+  
+  .animate-slide-right {
+    animation: slideInRight 1s ease-out forwards;
+  }
+  
+  /* Custom Scaling */
+  .scale-100 {
+    transform: scale(1);
+  }
+  
+  /* Rotation effects for image and text */
+  .rotate-0 {
+    transform: rotate(0deg);
+  }
+  .scale-95 {
+    transform: scale(0.95);
+  }
+  
+  /* Fade in with smooth transitions */
+  .opacity-0 {
+    opacity: 0;
+  }
+  
+  .opacity-100 {
+    opacity: 1;
+  }
+  
+  
