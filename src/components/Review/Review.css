@@ -1,0 +1,33 @@
+/* Keyframes for left-to-right animation */
+@keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Keyframes for right-to-left animation */
+  @keyframes slideInFromRight {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Apply animations to the review sections */
+  .animate-slide-left {
+    animation: slideInFromLeft 1s ease-out forwards;
+  }
+  
+  .animate-slide-right {
+    animation: slideInFromRight 1s ease-out forwards;
+  }
+  
