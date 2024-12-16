@@ -3,7 +3,7 @@ import heroVideo from '../../assets/hero3.mp4';
 import './HeroSection.css'
 function HeroSection() {
   return (
-    <div className="relative w-full h-auto">
+    <div className="relative w-full h-auto mt-20">
       <video
         id="heroVideo"
         className="w-full h-auto transition-all duration-300 sm:w-full md:w-3/4 lg:w-4/5 xl:w-3/4 2xl:w-2/3"
