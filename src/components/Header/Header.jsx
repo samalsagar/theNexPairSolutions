@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import logo from '../../assets/logo.png';
 import './Header.css';
 import { useEffect } from 'react';
+
 function Header({
   aboutUsRef,
   ourTeamRef,
@@ -27,10 +28,9 @@ function Header({
     setMenuOpen(false);
   };
 
-
   return (
     <div className=''>
-      <header className="bg-blue-yellow header flex shadow-md py-4 px-4 bg-white font-[sans-serif] min-h-[70px] tracking-wide relative z-50">
+      <header className="fixed top-0 left-0 w-full bg-blue-yellow header flex shadow-md py-4 px-4 bg-white font-[sans-serif] tracking-wide z-50">
         <div className="flex flex-wrap items-center justify-between w-full">
           <a href="/">
             {/* Make the logo responsive and set consistent height/width */}
@@ -90,7 +90,7 @@ function Header({
               <li className="max-lg:border-b border-yellow-300 max-lg:py-3 px-3">
                 <button
                   onClick={() => scrollToSection('/')}
-                  className="text-custom-blue block font-semibold text-[15px] hover:font-bold"  // Updated to font-bold
+                  className="text-custom-blue block font-semibold text-[15px] hover:font-bold"
                 >
                   Home
                 </button>
@@ -98,7 +98,7 @@ function Header({
               <li className="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
                 <button
                   onClick={() => scrollToSection(aboutUsRef)}
-                  className="text-gray-500 block font-semibold text-[15px] hover:font-bold hover:text-yellow-600"  // Updated to font-bold
+                  className="text-gray-500 block font-semibold text-[15px] hover:font-bold hover:text-yellow-600"
                 >
                   About Us
                 </button>
@@ -106,7 +106,7 @@ function Header({
               <li className="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
                 <button
                   onClick={() => scrollToSection(ourTeamRef)}
-                  className="text-gray-500 block font-semibold text-[15px] hover:font-bold hover:text-yellow-600"  // Updated to font-bold
+                  className="text-gray-500 block font-semibold text-[15px] hover:font-bold hover:text-yellow-600"
                 >
                   Our Team
                 </button>
@@ -114,17 +114,15 @@ function Header({
               <li className="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
                 <button
                   onClick={() => scrollToSection(servicesRef)}
-                  className="text-gray-500 block font-semibold text-[15px] hover:font-bold hover:text-yellow-600"  // Updated to font-bold
+                  className="text-gray-500 block font-semibold text-[15px] hover:font-bold hover:text-yellow-600"
                 >
                   Services
                 </button>
               </li>
-        
-
               <li className="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
                 <button
                   onClick={() => scrollToSection(recentWorkRef)}
-                  className="text-gray-500 block font-semibold text-[15px] hover:font-bold hover:text-yellow-600"  // Updated to font-bold
+                  className="text-gray-500 block font-semibold text-[15px] hover:font-bold hover:text-yellow-600"
                 >
                   Recent Work
                 </button>
@@ -136,13 +134,13 @@ function Header({
             <button
               onClick={() => scrollToSection(contactRef)}
               className="bg-yellow-500 px-8 py-3 text-sm rounded-full font-bold text-white border-2 border-yellow-600 bg-custom-blue transition-all ease-in-out duration-300 hover:bg-transparent hover:text-yellow-600">
-              Conatct US
+              Contact US
             </button>
           </div>
 
           {/* Mobile Hamburger Menu */}
           {!menuOpen && (
-            <div className="lg:hidden flex items-center ml-4"> {/* Only show hamburger if menu is closed */}
+            <div className="lg:hidden flex items-center ml-4">
               <button className="text-black" onClick={toggleMenu}>
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -157,9 +155,6 @@ function Header({
           )}
         </div>
       </header>
-       {/* Scroll to Top Button */}
-
-
     </div>
   );
 }
