@@ -97,7 +97,7 @@ function Review() {
 
             {/* Right side: Review Text with Animation */}
             <div
-              className={`relative flex flex-col items-center justify-between p-6 bg-gradient-to-r from-blue-300 to-blue-700 text-black rounded-2xl border-2 border-gray-300 transform transition-all duration-1000 ${isVisible ? 'animate-slide-right opacity-100 scale-100 rotate-0' : 'opacity-0 scale-95 translate-x-[100%] rotate-[-15deg]'}`}
+              className={`relative flex flex-col items-center justify-between p-6 bg-gradient-to-r from-blue-300 via-yellow-200 to-blue-500 text-black rounded-2xl border-2 border-gray-300 transform transition-all duration-1000 ${isVisible ? 'animate-slide-right opacity-100 scale-100 rotate-0' : 'opacity-0 scale-95 translate-x-[100%] rotate-[-15deg]'}`}
             >
               <div className="pb-6 text-lg font-semibold mx-auto text-center italic opacity-90 overflow-hidden">
                 <p className="text-base px-4 h-full">{currentReview.text}</p>
@@ -106,7 +106,7 @@ function Review() {
               <div className="flex items-center justify-center mt-8 space-x-8">
                 <button
                   onClick={goToNextReview} // Call goToNextReview when the button is clicked
-                  className="bg-transparent border-2 border-blue-300 rounded-full p-4 text-white hover:bg-white hover:text-white transition-all duration-300 transform hover:scale-110"
+                  className="bg-transparent border-2 border-white rounded-full p-4 text-white hover:bg-white hover:text-white transition-all duration-300 transform hover:scale-110"
                 >
                   <img
                     className="w-20 h-20 object-cover rounded-full border-4 border-white"

@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../assets/test.png';
+import logo from '../../assets/logo.png';
 import facebook from '../../assets/facebook.png';
 import linkedIn from '../../assets/linkedin.png';
 import insta from '../../assets/insta.png';
@@ -34,9 +34,10 @@ function Footer({
                     <div className="flex flex-col justify-between sm:px-[18px] md:flex-row md:px-10">
                         <div className="md:w-[316px]">
                             <p className="text-[18px] font-medium text-black">
-                                <h1 className="text-black font-extrabold text-left">
+                                {/* <h1 className="text-black font-extrabold text-left">
                                     <span className="text-yellow-400">NEXPAIR</span>SOLUTIONS
-                                </h1>
+                                </h1> */}
+                                <img src={logo} alt="logo" className='h-12 -ms-3 w-44' />
                             </p>
                             <p className="mt-[18px] text-[15px] font-normal text-black/[80%] text-left">
                                 NexPair Solutions is a service and consulting company specializing in providing high-quality solutions for businesses in the areas of mobile app development, web app development, and full-stack development. It was founded in December 2024.

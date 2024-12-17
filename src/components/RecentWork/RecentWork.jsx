@@ -16,7 +16,7 @@ function RecentWork() {
                             whileInView={{ opacity: 1 }}
                             transition={{ duration: 1 }}
                         >
-                            LATEST WORKS
+                            Latest Works
                         </motion.h2>
                     </div>
 

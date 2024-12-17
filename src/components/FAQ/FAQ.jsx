@@ -10,8 +10,8 @@ function FAQ() {
     };
 
     return (
-        <div className="p-4 font-sans mt-20 bg-gray-100">
-            <div className="text-center mt-20 mb-20">
+        <div className="pt-10 font-sans bg-gray-100">
+            <div className="text-center mb-20">
                 <h2 className="text-3xl font-extrabold text-gray-800 inline-block relative after:absolute after:w-4/6 after:h-1 after:left-0 after:right-0 after:-bottom-4 after:mx-auto after:bg-yellow-400 after:rounded-full">
                 Answer & Question
                 </h2>
