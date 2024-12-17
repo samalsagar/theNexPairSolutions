@@ -28,7 +28,7 @@ function Footer({
         setMenuOpen(false);
     };
     return (
-        <div className='mt-20'>
+        <div className='lg:mt-20 sm:mt-0'>
             <div className="mt-8 pt-9">
                 <div className="mx-auto w-full max-w-[1166px] px-4 xl:px-0">
                     <div className="flex flex-col justify-between sm:px-[18px] md:flex-row md:px-10">
@@ -37,7 +37,7 @@ function Footer({
                                 {/* <h1 className="text-black font-extrabold text-left">
                                     <span className="text-yellow-400">NEXPAIR</span>SOLUTIONS
                                 </h1> */}
-                                <img src={logo} alt="logo" className='h-12 -ms-3 w-44' />
+                                <img src={logo} alt="logo" className='h-12 -ms-3 w-44 '/>
                             </p>
                             <p className="mt-[18px] text-[15px] font-normal text-black/[80%] text-left">
                                 NexPair Solutions is a service and consulting company specializing in providing high-quality solutions for businesses in the areas of mobile app development, web app development, and full-stack development. It was founded in December 2024.
