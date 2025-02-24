@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import sagar from '../../assets/Team/samal.jpg';
 import tejender from '../../assets/tejender.jpeg';
-import priti from '../../assets/team/seo.jpeg';
+import seo from '../../assets/team/seo.jpeg';
 import amlan from '../../assets/team/manoj.jpeg';
 import dibya from '../../assets/team/soumitree.jpeg';
 
@@ -39,7 +39,7 @@ function OurTeam() {
             transition={{ duration: 0.5 }}
           >
             <motion.img
-              src={priti}
+              src={seo}
               className="w-24 h-24 rounded-full transform transition duration-300 hover:scale-110 hover:brightness-110"
               whileHover={{ scale: 1.1 }}
             />
