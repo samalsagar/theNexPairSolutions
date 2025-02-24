@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import sagar from '../../assets/test3.jpg';
+import sagar from '../../assets/team/sagar.jpg';
 import tejender from '../../assets/tejender.jpeg';
-import priti from '../../assets/priti.jpeg';
-import amlan from '../../assets/amlan.jpeg';
-import dibya from '../../assets/dibya.jpeg';
+import priti from '../../assets/team/debasis.jpeg';
+import amlan from '../../assets/team/manoj.jpeg';
+import dibya from '../../assets/team/soumitree.jpeg';
 
 function OurTeam() {
   return (
@@ -48,9 +48,9 @@ function OurTeam() {
                 className="text-gray-800 text-base font-semibold transition-colors duration-200 hover:text-yellow-500"
                 whileHover={{ scale: 1.05 }}
               >
-                Priti Nanda Patra
+                Debasis Mahanto
               </motion.h4>
-              <p className="text-xs text-blue-600 mt-1">Software Engineer</p>
+              <p className="text-xs text-blue-600 mt-1">SEO Analyst</p>
             </div>
           </motion.div>
 
@@ -120,9 +120,9 @@ function OurTeam() {
                 className="text-gray-800 text-base font-semibold transition-colors duration-200 hover:text-yellow-500"
                 whileHover={{ scale: 1.05 }}
               >
-                Dibya Jyoti Jena
+                Soumitree Jena
               </motion.h4>
-              <p className="text-xs text-blue-600 mt-1">Software Engineer</p>
+              <p className="text-xs text-blue-600 mt-1">Full Stack Developer</p>
             </div>
           </motion.div>
 
@@ -144,9 +144,9 @@ function OurTeam() {
                 className="text-gray-800 text-base font-semibold transition-colors duration-200 hover:text-yellow-500"
                 whileHover={{ scale: 1.05 }}
               >
-                Amlan Baral
+                Manoj Kumar Roul
               </motion.h4>
-              <p className="text-xs text-blue-600 mt-1">Administration Department</p>
+              <p className="text-xs text-blue-600 mt-1">BDE</p>
             </div>
           </motion.div>
 
