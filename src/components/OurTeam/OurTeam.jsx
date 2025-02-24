@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import sagar from '../../assets/team/sagar.jpg';
+import sagar from '../../assets/Team/samal.jpg';
 import tejender from '../../assets/tejender.jpeg';
 import priti from '../../assets/team/debasis.jpeg';
 import amlan from '../../assets/team/manoj.jpeg';
