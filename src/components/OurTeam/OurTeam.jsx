@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import sagar from '../../assets/Team/samal.jpg';
 import tejender from '../../assets/tejender.jpeg';
 import seo from '../../assets/Team/seo.jpeg';
-import amlan from '../../assets/Team/manoj.jpeg';
+import amlan from '../../assets/Team/bde.jpeg';
 import dibya from '../../assets/Team/soumitree.jpeg';
 
 function OurTeam() {
