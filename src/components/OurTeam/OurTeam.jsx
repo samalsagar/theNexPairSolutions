@@ -2,9 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import sagar from '../../assets/Team/samal.jpg';
 import tejender from '../../assets/tejender.jpeg';
-import seo from '../../assets/team/seo.jpeg';
-import amlan from '../../assets/team/manoj.jpeg';
-import dibya from '../../assets/team/soumitree.jpeg';
+import seo from '../../assets/Team/seo.jpeg';
+import amlan from '../../assets/Team/manoj.jpeg';
+import dibya from '../../assets/Team/soumitree.jpeg';
 
 function OurTeam() {
   return (
