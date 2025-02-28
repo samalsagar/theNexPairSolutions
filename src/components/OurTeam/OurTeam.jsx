@@ -30,53 +30,9 @@ function OurTeam() {
         </header>
 
         <div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-8 max-sm:gap-12 max-md:justify-center mt-16">
-          {/* Team Member 1 */}
-          <motion.div
-            className="flex items-center p-6 bg-white rounded-lg shadow-xl transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl hover:border-2 hover:border-yellow-400 hover:ring-2 hover:ring-yellow-300"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <motion.img
-              src={seo}
-              className="w-24 h-24 rounded-full transform transition duration-300 hover:scale-110 hover:brightness-110"
-              whileHover={{ scale: 1.1 }}
-            />
-            <div className="ml-6">
-              <motion.h4
-                className="text-gray-800 text-base font-semibold transition-colors duration-200 hover:text-yellow-500"
-                whileHover={{ scale: 1.05 }}
-              >
-                Debasis Mahanto
-              </motion.h4>
-              <p className="text-xs text-blue-600 mt-1">SEO Analyst</p>
-            </div>
-          </motion.div>
+         
 
-          {/* Team Member 2 */}
-          <motion.div
-            className="flex items-center p-6 bg-white rounded-lg shadow-xl transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl hover:border-2 hover:border-yellow-400 hover:ring-2 hover:ring-yellow-300"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <motion.img
-              src={tejender}
-              className="w-24 h-24 rounded-full transform transition duration-300 hover:scale-110 hover:brightness-110"
-              whileHover={{ scale: 1.1 }}
-            />
-            <div className="ml-6">
-              <motion.h4
-                className="text-gray-800 text-base font-semibold transition-colors duration-200 hover:text-yellow-500"
-                whileHover={{ scale: 1.05 }}
-              >
-                Tejender Pal Singh
-              </motion.h4>
-              <p className="text-xs text-blue-600 mt-1">Web Developer</p>
-            </div>
-          </motion.div>
+          
 
           {/* Team Member 3 */}
           <motion.div
@@ -126,16 +82,16 @@ function OurTeam() {
             </div>
           </motion.div>
 
-          {/* Team Member 5 */}
-          <motion.div
+         {/* Team Member 2 */}
+         <motion.div
             className="flex items-center p-6 bg-white rounded-lg shadow-xl transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl hover:border-2 hover:border-yellow-400 hover:ring-2 hover:ring-yellow-300"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.8 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
             <motion.img
-              src={amlan}
+              src={tejender}
               className="w-24 h-24 rounded-full transform transition duration-300 hover:scale-110 hover:brightness-110"
               whileHover={{ scale: 1.1 }}
             />
@@ -144,9 +100,9 @@ function OurTeam() {
                 className="text-gray-800 text-base font-semibold transition-colors duration-200 hover:text-yellow-500"
                 whileHover={{ scale: 1.05 }}
               >
-                Manoj Kumar Roul
+                Tejender Pal Singh
               </motion.h4>
-              <p className="text-xs text-blue-600 mt-1">BDE</p>
+              <p className="text-xs text-blue-600 mt-1">Web Developer </p>
             </div>
           </motion.div>
 
@@ -171,6 +127,52 @@ function OurTeam() {
                 Prachi Mishra
               </motion.h4>
               <p className="text-xs text-blue-600 mt-1">Web Designer</p>
+            </div>
+          </motion.div>
+           {/* Team Member 1 */}
+           <motion.div
+            className="flex items-center p-6 bg-white rounded-lg shadow-xl transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl hover:border-2 hover:border-yellow-400 hover:ring-2 hover:ring-yellow-300"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <motion.img
+              src={seo}
+              className="w-24 h-24 rounded-full transform transition duration-300 hover:scale-110 hover:brightness-110"
+              whileHover={{ scale: 1.1 }}
+            />
+            <div className="ml-6">
+              <motion.h4
+                className="text-gray-800 text-base font-semibold transition-colors duration-200 hover:text-yellow-500"
+                whileHover={{ scale: 1.05 }}
+              >
+                Debasis Mahanto
+              </motion.h4>
+              <p className="text-xs text-blue-600 mt-1">SEO Analyst</p>
+            </div>
+          </motion.div>
+           {/* Team Member 5 */}
+           <motion.div
+            className="flex items-center p-6 bg-white rounded-lg shadow-xl transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl hover:border-2 hover:border-yellow-400 hover:ring-2 hover:ring-yellow-300"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+          >
+            <motion.img
+              src={amlan}
+              className="w-24 h-24 rounded-full transform transition duration-300 hover:scale-110 hover:brightness-110"
+              whileHover={{ scale: 1.1 }}
+            />
+            <div className="ml-6">
+              <motion.h4
+                className="text-gray-800 text-base font-semibold transition-colors duration-200 hover:text-yellow-500"
+                whileHover={{ scale: 1.05 }}
+              >
+                Manoj Kumar Roul
+              </motion.h4>
+              <p className="text-xs text-blue-600 mt-1">BDE</p>
             </div>
           </motion.div>
 
